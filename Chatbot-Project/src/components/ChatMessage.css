@@ -1,0 +1,33 @@
+.chat-message-user{
+    display: flex;
+    justify-content: end;
+    align-items: start;
+}
+.chat-message-robot{
+  display: flex;
+  align-items: start;
+}
+.chat-message-text{
+  background-color: rgb(238, 238, 238);
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+.chat-message-profile{
+  width: 45px;
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #3498db; 
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
