@@ -1,13 +1,17 @@
 import axios from 'axios'
+import { useEffect, useState} from 'react'
 import Header from '../components/header'
-import { products } from '../../starting-code/data/products'
 import './HomePage.css'
 
 export const HomePage = () => {
-    axios
-    .get('http://localhost:3000/api/products')
-    .then((res) => {console.log(res.data)});
-    
+    const[products, setProducts] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:3000/api/products')
+            .then((res) => { setProducts(res.data) });
+    }, []);
+
     return (
         <>
             <title>Ecommerce Project</title>
@@ -29,14 +33,14 @@ export const HomePage = () => {
 
                                     <div className="product-rating-container">
                                         <img className="product-rating-stars"
-                                            src={`images/ratings/rating-${p.rating.stars*10}.png`} />
+                                            src={`images/ratings/rating-${p.rating.stars * 10}.png`} />
                                         <div className="product-rating-count link-primary">
                                             {p.rating.count}
                                         </div>
                                     </div>
 
                                     <div className="product-price">
-                                        ${ (p.priceCents / 100).toFixed(2) }
+                                        ${(p.priceCents / 100).toFixed(2)}
                                     </div>
 
                                     <div className="product-quantity-container">
